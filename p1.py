@@ -30,14 +30,21 @@ aakkoset = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 
 def apu(merkkijono):
+     
      for i in range(len(merkkijono)):
-      
+
+      indeksi = 0
+
+      if merkkijono[i] == ' ':
+         continue
+
       kirjain = merkkijono[i]
       indeksi = aakkoset.index(kirjain)
+     
       
-      if indeksi < 13:
+      if indeksi <= 12:
         merkkijono[i] = aakkoset[indeksi+13]
-     else:
+      else:
          merkkijono[i] = aakkoset[indeksi-13]
          
 
@@ -48,7 +55,7 @@ def Caesar():
    apu(merkkijono)
    return "".join(merkkijono)
    
-
+print('Mitä haluat muuttaa?')
 print(Caesar())
 
 
