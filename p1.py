@@ -41,14 +41,17 @@ def apu(merkkijono):
       if merkkijono[i] == ' ':
          continue
 
-      kirjain = merkkijono[i]
-      indeksi = aakkoset.index(kirjain)
+
+      if merkkijono[i].isalpha():
+         kirjain = merkkijono[i]
+         indeksi = aakkoset.index(kirjain)
+         if indeksi <= 12:
+               merkkijono[i] = aakkoset[indeksi+13]
+         else:
+               merkkijono[i] = aakkoset[indeksi-13]
      
       
-      if indeksi <= 12:
-        merkkijono[i] = aakkoset[indeksi+13]
-      else:
-         merkkijono[i] = aakkoset[indeksi-13]
+ 
          
 
 
@@ -56,6 +59,18 @@ def Caesar():
 
    merkkijono = input().lower()
    merkkijono = list(merkkijono)
+   # nyt on hyvä aika leikata numerot pois
+
+
+
+
+   for i in range(len(merkkijono)):
+       if(merkkijono[i].isnumeric()):
+           merkkijono.pop(i)
+
+           
+         
+
    if len(merkkijono) < 1:
       print("Täytyy olla vähintään yksi merkki")
    apu(merkkijono)
