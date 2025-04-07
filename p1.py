@@ -23,9 +23,6 @@
 #            https://www.reddit.com/r/learnpython/comments/tc32uw/why_is_my_loop_only_iterating_once/
 
 
-# stil requires for the input to be lowercased to work
-
-import tkinter as tk
 
 
 aakkoset = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -38,10 +35,6 @@ def apu(merkkijono):
      for i in range(len(merkkijono)):
 
 
-      if merkkijono[i] == ' ':
-         continue
-
-
       if merkkijono[i].isalpha():
          kirjain = merkkijono[i]
          indeksi = aakkoset.index(kirjain)
@@ -50,35 +43,35 @@ def apu(merkkijono):
          else:
                merkkijono[i] = aakkoset[indeksi-13]
      
-      
- 
-         
-
 
 def Caesar():
 
    merkkijono = input().lower()
    merkkijono = list(merkkijono)
-   # nyt on hyvä aika leikata numerot pois
 
 
+   # Merkkien tarkistus
 
 
    for i in range(len(merkkijono)):
-       if(merkkijono[i].isnumeric()):
-           merkkijono.pop(i)
+       if(merkkijono[i] == ' '):
+           continue
+       if (merkkijono[i].isalpha()):
+         continue
+       else:
+           print("käytä vain kirjaimia")
+           exit()
 
-           
-         
 
    if len(merkkijono) < 1:
       print("Täytyy olla vähintään yksi merkki")
+      exit()
    apu(merkkijono)
    return "".join(merkkijono)
    
 
 
-print('Mitä haluat muuttaa?')
+print('Tervetuloa! Tämän ohjelman tarkoitus on kääntää antamasi viesti salaviestiksi.')
 print(Caesar())
 
 
