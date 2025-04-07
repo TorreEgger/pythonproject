@@ -54,9 +54,8 @@ def Caesar():
 
 
    for i in range(len(merkkijono)):
-       if(merkkijono[i] == ' '):
-           continue
-       if (merkkijono[i].isalpha()):
+       
+       if (merkkijono[i].isalpha() or ' '):
          continue
        else:
            print("käytä vain kirjaimia")
