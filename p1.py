@@ -25,15 +25,18 @@
 
 # stil requires for the input to be lowercased to work
 
+import tkinter as tk
+
+
 aakkoset = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
 
 def apu(merkkijono):
+
      
      for i in range(len(merkkijono)):
 
-      indeksi = 0
 
       if merkkijono[i] == ' ':
          continue
@@ -50,11 +53,16 @@ def apu(merkkijono):
 
 
 def Caesar():
-   merkkijono = input()
+
+   merkkijono = input().lower()
    merkkijono = list(merkkijono)
+   if len(merkkijono) < 1:
+      print("Täytyy olla vähintään yksi merkki")
    apu(merkkijono)
    return "".join(merkkijono)
    
+
+
 print('Mitä haluat muuttaa?')
 print(Caesar())
 
