@@ -46,7 +46,7 @@ def Caesar():
                merkkijono[i] = aakkoset[indeksi-13]
       else:
           print("käytä kirjaimia")
-          exit()
+          exit(Caesar())
      
 
    if len(merkkijono) < 1:
