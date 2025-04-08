@@ -12,62 +12,49 @@
 
 # At first it only printed 1 letter in the correct form
 
-
 # for example used these sources:
 #            https://fi.wikipedia.org/wiki/Suomen_kielen_aakkoset
 #            https://en.wikipedia.org/wiki/ROT13
 #            https://en.wikipedia.org/wiki/Caesar_cipher
 #            https://stackoverflow.com/questions/61175095/cannot-iterate-through-list-with-for-loop-in-python
 #            https://stackoverflow.com/questions/41752946/replacing-a-character-from-a-certain-index
-
 #            https://www.reddit.com/r/learnpython/comments/tc32uw/why_is_my_loop_only_iterating_once/
-
-
 
 
 aakkoset = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
-
-def apu(merkkijono):
-
-     
-     for i in range(len(merkkijono)):
+def Caesar():
 
 
-      if merkkijono[i].isalpha():
+   merkkijono = input().lower()
+   merkkijono = list(merkkijono)
+
+    
+   for i in range(len(merkkijono)):
+
+      if(merkkijono[i] == ' '):  # if the character is a space, then just go to the next index
+          continue
+
+
+      if merkkijono[i].isalpha():   # if the character is indeed an letter in the alphabet, let's go through. if not, then print an error and exit the program    
          kirjain = merkkijono[i]
          indeksi = aakkoset.index(kirjain)
          if indeksi <= 12:
                merkkijono[i] = aakkoset[indeksi+13]
          else:
                merkkijono[i] = aakkoset[indeksi-13]
+      else:
+          print("käytä kirjaimia")
+          exit()
      
-
-def Caesar():
-
-   merkkijono = input().lower()
-   merkkijono = list(merkkijono)
-
-
-   # Merkkien tarkistus
-
-
-   for i in range(len(merkkijono)):
-       
-       if (merkkijono[i].isalpha() or ' '):
-         continue
-       else:
-           print("käytä vain kirjaimia")
-           exit()
-
 
    if len(merkkijono) < 1:
       print("Täytyy olla vähintään yksi merkki")
       exit()
-   apu(merkkijono)
    return "".join(merkkijono)
    
+
 
 
 print('Tervetuloa! Tämän ohjelman tarkoitus on kääntää antamasi viesti salaviestiksi.')
