@@ -31,7 +31,8 @@ def Caesar():
    merkkijono = list(merkkijono)
 
     
-   for i in range(len(merkkijono)):
+   for i in range(len(merkkijono)): # https://stackoverflow.com/questions/61175095/cannot-iterate-through-list-with-for-loop-in-python from here i found the option of 
+                                    # using range and len so the index runs through the whole array
 
       if(merkkijono[i] == ' '):  # if the character is a space, then just go to the next index
           continue
